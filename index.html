@@ -3,207 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brandon T. Burns — Software &amp; Networked Systems</title>
-  <meta name="description" content="Portfolio of Brandon T. Burns, Computer Science graduate specializing in Networked Systems." />
+  <title>Brandon T. Burns — Networked Systems Edition</title>
+  <meta name="description" content="Portfolio of Brandon T. Burns, Computer Science graduate specializing in Networked Systems, styled as a retro game console." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="console" id="console">
 
-  <header class="site-header">
-    <nav class="nav container">
-      <a href="#top" class="logo">brandon<span class="accent">@</span>portfolio<span class="cursor">_</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about"><span class="accent">01.</span> About</a></li>
-        <li><a href="#projects"><span class="accent">02.</span> Projects</a></li>
-        <li><a href="#contact"><span class="accent">03.</span> Contact</a></li>
-        <li><a href="assets/resume.pdf" class="btn btn-small" target="_blank" rel="noopener">Resume</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero container">
-      <p class="mono-line">$ whoami</p>
-      <h1>
-        Brandon T. Burns
-      </h1>
-      <h2 class="typed-heading">
-        <span id="typedText"></span><span class="cursor">_</span>
-      </h2>
-      <p class="hero-sub">
-        Computer Science graduate (B.S.) specializing in
-        <span class="accent">Networked Systems</span>.
-        I build things at the intersection of software and the networks that carry it.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    <div class="console-top">
+      <div class="vents" aria-hidden="true"></div>
+      <div class="brand">
+        <span class="brand-name">BTB</span>
+        <span class="brand-sub">CLASSIC EDITION</span>
       </div>
-    </section>
+      <div class="power-led" aria-hidden="true"></div>
+    </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="section container">
-      <h2 class="section-title"><span class="accent">01.</span> About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            Hi, I'm Brandon — a recent Computer Science graduate with a B.S. and a
-            specialization in <strong>Networked Systems</strong>. I'm interested in how
-            distributed systems, networking protocols, and infrastructure come together
-            to make modern software reliable at scale.
-          </p>
-          <p>
-            My coursework and projects have focused on topics like computer networks,
-            systems programming, operating systems, and distributed computing — and I
-            enjoy digging into how things work under the hood, from packets to
-            production systems.
-          </p>
-          <p>
-            I'm currently looking for opportunities where I can apply and grow that
-            foundation, whether that's backend engineering, systems/infrastructure work,
-            or network engineering roles.
-          </p>
-          <ul class="skill-list">
-            <li>Python</li>
-            <li>Java</li>
-            <li>C / C++</li>
-            <li>Networking (TCP/IP, DNS, Routing)</li>
-            <li>Linux</li>
-            <li>Git</li>
-            <li>SQL</li>
-            <li>Bash</li>
-          </ul>
+    <div class="console-body">
+      <div class="screen-bezel">
+        <div class="screen" id="screen">
+          <div class="scanlines" aria-hidden="true"></div>
+          <div class="vignette" aria-hidden="true"></div>
+
+          <!-- BOOT / TITLE SCREEN -->
+          <section class="game-screen active" id="screen-boot" data-screen="boot">
+            <div class="boot-content">
+              <h1 class="game-title">BRANDON T.<br />BURNS</h1>
+              <p class="game-subtitle"><span id="typedSubtitle"></span><span class="caret">_</span></p>
+              <p class="press-start">PRESS START</p>
+              <p class="copyright">© <span class="year-inline" data-year></span> B.T.BURNS · ALL RIGHTS RESERVED</p>
+            </div>
+          </section>
+
+          <!-- MENU / CARTRIDGE SELECT -->
+          <section class="game-screen" id="screen-menu" data-screen="menu">
+            <h2 class="menu-heading">SELECT A CARTRIDGE</h2>
+            <div class="cartridge-grid" id="cartridgeGrid">
+              <button class="cartridge" data-target="about" data-index="0">
+                <span class="cart-icon icon-blue">A</span>
+                <span class="cart-label">ABOUT ME</span>
+                <span class="cart-select-arrow" aria-hidden="true">&#9654;</span>
+              </button>
+              <button class="cartridge" data-target="projects" data-index="1">
+                <span class="cart-icon icon-yellow">P</span>
+                <span class="cart-label">PROJECTS</span>
+                <span class="cart-select-arrow" aria-hidden="true">&#9654;</span>
+              </button>
+              <button class="cartridge" data-target="contact" data-index="2">
+                <span class="cart-icon icon-green">C</span>
+                <span class="cart-label">CONTACT</span>
+                <span class="cart-select-arrow" aria-hidden="true">&#9654;</span>
+              </button>
+            </div>
+            <p class="menu-hint">&#9664;&#9654; MOVE &nbsp;&nbsp;&nbsp; ENTER / A SELECT</p>
+          </section>
+
+          <!-- ABOUT -->
+          <section class="game-screen" id="screen-about" data-screen="about">
+            <div class="hud">
+              <button class="back-btn" data-back>&#9664; MENU</button>
+              <span class="hud-title">ABOUT ME</span>
+              <span class="hud-page">STAGE 1&ndash;1</span>
+            </div>
+            <div class="content-area about-area">
+              <div class="dialog-box">
+                <p>
+                  Hi, I'm Brandon &mdash; a recent Computer Science graduate with a
+                  B.S. and a specialization in <strong>Networked Systems</strong>.
+                  I'm interested in how distributed systems, networking protocols,
+                  and infrastructure come together to make modern software
+                  reliable at scale.
+                </p>
+                <p>
+                  My coursework and projects have focused on computer networks,
+                  systems programming, operating systems, and distributed
+                  computing &mdash; I like digging into how things work under the
+                  hood, from packets to production systems.
+                </p>
+                <p>
+                  Currently looking for opportunities in backend engineering,
+                  systems/infrastructure, or network engineering roles.
+                </p>
+              </div>
+              <div class="stat-block">
+                <h3 class="stat-heading">CHARACTER STATS</h3>
+                <ul class="stat-list">
+                  <li><span class="stat-key">CLASS</span><span class="stat-val">CS Graduate</span></li>
+                  <li><span class="stat-key">DEGREE</span><span class="stat-val">B.S. Computer Science</span></li>
+                  <li><span class="stat-key">SPEC</span><span class="stat-val">Networked Systems</span></li>
+                  <li><span class="stat-key">STATUS</span><span class="stat-val glow">OPEN TO WORK</span></li>
+                </ul>
+                <h3 class="stat-heading">INVENTORY</h3>
+                <ul class="inventory-list">
+                  <li>Python</li>
+                  <li>Java</li>
+                  <li>C / C++</li>
+                  <li>TCP/IP &amp; Routing</li>
+                  <li>Linux</li>
+                  <li>Git</li>
+                  <li>SQL</li>
+                  <li>Bash</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROJECTS -->
+          <section class="game-screen" id="screen-projects" data-screen="projects">
+            <div class="hud">
+              <button class="back-btn" data-back>&#9664; MENU</button>
+              <span class="hud-title">PROJECTS</span>
+              <span class="hud-page">STAGE 1&ndash;2</span>
+            </div>
+            <div class="content-area">
+              <p class="section-lead">
+                A few things I've built. Swap these placeholders out with your
+                real projects, write-ups, and links whenever you're ready.
+              </p>
+              <div class="level-grid">
+
+                <article class="level-card">
+                  <div class="level-card-head">
+                    <span class="level-tag">GAME 01</span>
+                  </div>
+                  <h3>Project Title One</h3>
+                  <p>
+                    Short description of the project &mdash; what problem it
+                    solves, what you built, and any interesting technical
+                    detail worth calling out.
+                  </p>
+                  <ul class="tech-tags">
+                    <li>Python</li>
+                    <li>Sockets</li>
+                    <li>Networking</li>
+                  </ul>
+                  <div class="level-links">
+                    <a href="#" class="pixel-btn small">GitHub</a>
+                    <a href="#" class="pixel-btn small">Demo</a>
+                  </div>
+                </article>
+
+                <article class="level-card">
+                  <div class="level-card-head">
+                    <span class="level-tag">GAME 02</span>
+                  </div>
+                  <h3>Project Title Two</h3>
+                  <p>
+                    Short description of the project &mdash; what problem it
+                    solves, what you built, and any interesting technical
+                    detail worth calling out.
+                  </p>
+                  <ul class="tech-tags">
+                    <li>Java</li>
+                    <li>Distributed Systems</li>
+                    <li>SQL</li>
+                  </ul>
+                  <div class="level-links">
+                    <a href="#" class="pixel-btn small">GitHub</a>
+                    <a href="#" class="pixel-btn small">Demo</a>
+                  </div>
+                </article>
+
+                <article class="level-card">
+                  <div class="level-card-head">
+                    <span class="level-tag">GAME 03</span>
+                  </div>
+                  <h3>Project Title Three</h3>
+                  <p>
+                    Short description of the project &mdash; what problem it
+                    solves, what you built, and any interesting technical
+                    detail worth calling out.
+                  </p>
+                  <ul class="tech-tags">
+                    <li>C</li>
+                    <li>Linux</li>
+                    <li>Bash</li>
+                  </ul>
+                  <div class="level-links">
+                    <a href="#" class="pixel-btn small">GitHub</a>
+                    <a href="#" class="pixel-btn small">Demo</a>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- CONTACT -->
+          <section class="game-screen" id="screen-contact" data-screen="contact">
+            <div class="hud">
+              <button class="back-btn" data-back>&#9664; MENU</button>
+              <span class="hud-title">CONTACT</span>
+              <span class="hud-page">STAGE 1&ndash;3</span>
+            </div>
+            <div class="content-area contact-area">
+              <p class="section-lead">
+                I'm actively looking for opportunities in software and
+                networked systems. Press a button to reach out.
+              </p>
+
+              <div class="controller">
+                <div class="controller-dpad" aria-hidden="true">
+                  <div class="dpad-arm dpad-vertical"></div>
+                  <div class="dpad-arm dpad-horizontal"></div>
+                </div>
+
+                <div class="controller-ab">
+                  <a href="mailto:you@example.com" class="ctrl-round-btn" data-label="EMAIL">B</a>
+                  <a href="https://github.com/your-username" target="_blank" rel="noopener" class="ctrl-round-btn" data-label="GITHUB">A</a>
+                </div>
+
+                <div class="controller-pills">
+                  <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="ctrl-pill" data-label="LINKEDIN">SELECT</a>
+                  <a href="assets/resume.pdf" target="_blank" rel="noopener" class="ctrl-pill" data-label="RESUME">START</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
-        <div class="about-card">
-          <div class="terminal-window">
-            <div class="terminal-bar">
-              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-            </div>
-            <pre class="terminal-body"><code><span class="tk-key">const</span> brandon <span class="tk-op">=</span> {
-  role<span class="tk-op">:</span> <span class="tk-str">"CS Graduate"</span>,
-  degree<span class="tk-op">:</span> <span class="tk-str">"B.S. Computer Science"</span>,
-  focus<span class="tk-op">:</span> <span class="tk-str">"Networked Systems"</span>,
-  status<span class="tk-op">:</span> <span class="tk-str">"open_to_work"</span>,
-  interests<span class="tk-op">:</span> [
-    <span class="tk-str">"distributed systems"</span>,
-    <span class="tk-str">"networking"</span>,
-    <span class="tk-str">"backend engineering"</span>
-  ]
-};</code></pre>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section container">
-      <h2 class="section-title"><span class="accent">02.</span> Projects</h2>
-      <p class="section-lead">
-        A few things I've built. Swap these placeholders out with your real projects,
-        write-ups, and links whenever you're ready.
-      </p>
-      <div class="project-grid">
+    <div class="console-base">
+      <div class="port" aria-hidden="true"></div>
+      <button class="reset-btn" id="resetBtn" title="Restart to title screen">RESET</button>
+      <div class="console-footer-text">&#169; <span data-year></span> BRANDON T. BURNS</div>
+    </div>
 
-        <article class="project-card">
-          <div class="project-head">
-            <span class="folder-icon" aria-hidden="true">&#128193;</span>
-            <div class="project-links">
-              <a href="#" aria-label="GitHub repository">GitHub</a>
-              <a href="#" aria-label="Live demo">Demo</a>
-            </div>
-          </div>
-          <h3>Project Title One</h3>
-          <p>
-            Short description of the project — what problem it solves, what you
-            built, and any interesting technical detail worth calling out.
-          </p>
-          <ul class="tech-tags">
-            <li>Python</li>
-            <li>Sockets</li>
-            <li>Networking</li>
-          </ul>
-        </article>
-
-        <article class="project-card">
-          <div class="project-head">
-            <span class="folder-icon" aria-hidden="true">&#128193;</span>
-            <div class="project-links">
-              <a href="#" aria-label="GitHub repository">GitHub</a>
-              <a href="#" aria-label="Live demo">Demo</a>
-            </div>
-          </div>
-          <h3>Project Title Two</h3>
-          <p>
-            Short description of the project — what problem it solves, what you
-            built, and any interesting technical detail worth calling out.
-          </p>
-          <ul class="tech-tags">
-            <li>Java</li>
-            <li>Distributed Systems</li>
-            <li>SQL</li>
-          </ul>
-        </article>
-
-        <article class="project-card">
-          <div class="project-head">
-            <span class="folder-icon" aria-hidden="true">&#128193;</span>
-            <div class="project-links">
-              <a href="#" aria-label="GitHub repository">GitHub</a>
-              <a href="#" aria-label="Live demo">Demo</a>
-            </div>
-          </div>
-          <h3>Project Title Three</h3>
-          <p>
-            Short description of the project — what problem it solves, what you
-            built, and any interesting technical detail worth calling out.
-          </p>
-          <ul class="tech-tags">
-            <li>C</li>
-            <li>Linux</li>
-            <li>Bash</li>
-          </ul>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section container contact-section">
-      <h2 class="section-title"><span class="accent">03.</span> Get In Touch</h2>
-      <p class="section-lead">
-        I'm actively looking for opportunities in software and networked systems.
-        Feel free to reach out — I'd love to talk.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:you@example.com" class="contact-link">
-          <span class="contact-icon">&#9993;</span> Email
-        </a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="contact-link">
-          <span class="contact-icon">in</span> LinkedIn
-        </a>
-        <a href="https://github.com/your-username" target="_blank" rel="noopener" class="contact-link">
-          <span class="contact-icon">&#60;/&#62;</span> GitHub
-        </a>
-        <a href="assets/resume.pdf" target="_blank" rel="noopener" class="contact-link">
-          <span class="contact-icon">&#128196;</span> Resume
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p class="container">
-      &#60;&#47;&#62; Built by Brandon T. Burns &mdash; <span id="year"></span>
-    </p>
-  </footer>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

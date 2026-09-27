@@ -18,27 +18,22 @@ assets/            Static files (put resume.pdf here)
 
 ## Deploy to GitHub Pages
 
-1. Create a new GitHub repo (public), e.g. `brandontburns-site`.
-2. From this folder:
-   ```
-   git init
-   git add .
-   git commit -m "Initial portfolio site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
-   git push -u origin main
-   ```
-3. On GitHub: repo **Settings → Pages** → Source: `Deploy from a branch` → Branch: `main`, folder `/ (root)` → Save.
-4. Your site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two.
+Repo: https://github.com/brandob33/brandontburns-site (already pushed).
 
-## Connect your GoDaddy domain (later step)
+On GitHub: repo **Settings → Pages** → Source: `Deploy from a branch` → Branch: `main`, folder `/ (root)` → Save.
+Site is live at `https://brandob33.github.io/brandontburns-site/` within a minute or two of enabling Pages.
 
-1. In the GitHub repo, add a file named `CNAME` (no extension) at the root containing just your domain, e.g. `brandontburns.com`.
-2. In GitHub **Settings → Pages**, set the custom domain to the same value and save.
-3. In GoDaddy DNS settings for your domain:
-   - Add 4 `A` records for `@` pointing to GitHub Pages' IPs:
+## Custom domain: brandontburns.com
+
+The `CNAME` file at the repo root already contains `brandontburns.com`.
+
+1. In GitHub **Settings → Pages → Custom domain**, enter `brandontburns.com` and save.
+2. In GoDaddy DNS settings for `brandontburns.com`:
+   - **Turn off Domain Forwarding** if GoDaddy has any forwarding/parking set up for the domain — it conflicts with the records below.
+   - Delete any existing `A` records on `@` and add these 4 `A` records for `@` (root domain), each pointing to one GitHub Pages IP:
      `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - Add a `CNAME` record for `www` pointing to `<your-username>.github.io`.
-4. Wait for DNS to propagate (can take up to a few hours), then enable **Enforce HTTPS** in GitHub Pages settings.
+   - Add/edit a `CNAME` record: name `www`, value `brandob33.github.io`.
+3. Wait for DNS to propagate (usually minutes, occasionally a few hours).
+4. Back in GitHub Pages settings, enable **Enforce HTTPS** once it becomes available (GitHub needs to verify DNS and issue a certificate first).
 
-We'll walk through this together when you're ready — just say the word.
+Result: `brandontburns.com` is the primary address; `www.brandontburns.com` automatically redirects to it.

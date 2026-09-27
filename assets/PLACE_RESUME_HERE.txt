@@ -1,0 +1,6 @@
+Put your resume PDF in this folder and name it "resume.pdf".
+
+The site links to it from the nav bar and the Contact section as:
+  assets/resume.pdf
+
+Once you add the real file, delete this placeholder text file.

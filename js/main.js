@@ -1,63 +1,113 @@
-// Mobile nav toggle
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+const screenEl = document.getElementById('screen');
+const consoleEl = document.getElementById('console');
+const cartridgeGrid = document.getElementById('cartridgeGrid');
+const cartridges = Array.from(cartridgeGrid.querySelectorAll('.cartridge'));
+const resetBtn = document.getElementById('resetBtn');
 
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
+let currentScreen = 'boot';
+let selectedIndex = 0;
+
+function showScreen(name) {
+  if (name === currentScreen) return;
+  currentScreen = name;
+
+  document.querySelectorAll('.game-screen').forEach((el) => {
+    el.classList.toggle('active', el.dataset.screen === name);
   });
 
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+  screenEl.classList.remove('flicker');
+  // eslint-disable-next-line no-unused-expressions
+  screenEl.offsetWidth; // restart animation
+  screenEl.classList.add('flicker');
+
+  if (name === 'menu') {
+    updateCartridgeSelection();
+  }
+}
+
+function updateCartridgeSelection() {
+  cartridges.forEach((card, i) => {
+    card.classList.toggle('selected', i === selectedIndex);
   });
 }
 
-// Typing effect for hero subheading
-const phrases = [
-  'Building networked systems.',
-  'Backend engineer in training.',
-  'Turning packets into products.',
-];
+function activateSelectedCartridge() {
+  const card = cartridges[selectedIndex];
+  if (card) showScreen(card.dataset.target);
+}
 
-const typedEl = document.getElementById('typedText');
+// Cartridge click + hover
+cartridges.forEach((card, i) => {
+  card.addEventListener('click', () => {
+    selectedIndex = i;
+    showScreen(card.dataset.target);
+  });
+  card.addEventListener('mouseenter', () => {
+    selectedIndex = i;
+    updateCartridgeSelection();
+  });
+});
+
+// Back buttons
+document.querySelectorAll('[data-back]').forEach((btn) => {
+  btn.addEventListener('click', () => showScreen('menu'));
+});
+
+// Reset button: always returns to the title screen
+resetBtn.addEventListener('click', () => showScreen('boot'));
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (currentScreen === 'boot') {
+    showScreen('menu');
+    return;
+  }
+
+  if (currentScreen === 'menu') {
+    if (e.key === 'ArrowRight') {
+      selectedIndex = (selectedIndex + 1) % cartridges.length;
+      updateCartridgeSelection();
+    } else if (e.key === 'ArrowLeft') {
+      selectedIndex = (selectedIndex - 1 + cartridges.length) % cartridges.length;
+      updateCartridgeSelection();
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      activateSelectedCartridge();
+    }
+    return;
+  }
+
+  // On a content screen
+  if (e.key === 'Escape' || e.key === 'Backspace') {
+    e.preventDefault();
+    showScreen('menu');
+  }
+});
+
+// Boot screen: click anywhere to continue too
+document.getElementById('screen-boot').addEventListener('click', () => {
+  if (currentScreen === 'boot') showScreen('menu');
+});
+
+// Typing effect for the boot subtitle
+const subtitleText = 'NETWORKED SYSTEMS EDITION';
+const typedEl = document.getElementById('typedSubtitle');
 
 if (typedEl) {
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
+  let i = 0;
   const type = () => {
-    const current = phrases[phraseIndex];
-
-    if (!deleting) {
-      charIndex++;
-      typedEl.textContent = current.slice(0, charIndex);
-      if (charIndex === current.length) {
-        deleting = true;
-        setTimeout(type, 1400);
-        return;
-      }
-    } else {
-      charIndex--;
-      typedEl.textContent = current.slice(0, charIndex);
-      if (charIndex === 0) {
-        deleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-      }
+    typedEl.textContent = subtitleText.slice(0, i);
+    i++;
+    if (i <= subtitleText.length) {
+      setTimeout(type, 80);
     }
-
-    setTimeout(type, deleting ? 40 : 70);
   };
-
   type();
 }
 
-// Footer year
-const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+// Footer / copyright years
+document.querySelectorAll('[data-year]').forEach((el) => {
+  el.textContent = new Date().getFullYear();
+});
+
+updateCartridgeSelection();

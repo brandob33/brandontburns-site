@@ -90,7 +90,7 @@ document.getElementById('screen-boot').addEventListener('click', () => {
 });
 
 // Typing effect for the boot subtitle
-const subtitleText = 'NETWORKED SYSTEMS EDITION';
+const subtitleText = 'CYBER SECURITY EDITION';
 const typedEl = document.getElementById('typedSubtitle');
 
 if (typedEl) {

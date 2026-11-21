@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brandon T. Burns — Networked Systems Edition</title>
-  <meta name="description" content="Portfolio of Brandon T. Burns, Computer Science graduate specializing in Networked Systems, styled as a retro game console." />
+  <title>Brandon T. Burns — Cyber Security Edition</title>
+  <meta name="description" content="Portfolio of Brandon T. Burns, UC Irvine Computer Science graduate (Networked Systems) and aspiring Cyber Security Analyst, styled as a retro game console." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
@@ -52,7 +52,12 @@
                 <span class="cart-label">PROJECTS</span>
                 <span class="cart-select-arrow" aria-hidden="true">&#9654;</span>
               </button>
-              <button class="cartridge" data-target="contact" data-index="2">
+              <button class="cartridge" data-target="quests" data-index="2">
+                <span class="cart-icon icon-blue">Q</span>
+                <span class="cart-label">QUEST LOG</span>
+                <span class="cart-select-arrow" aria-hidden="true">&#9654;</span>
+              </button>
+              <button class="cartridge" data-target="contact" data-index="3">
                 <span class="cart-icon icon-green">C</span>
                 <span class="cart-label">CONTACT</span>
                 <span class="cart-select-arrow" aria-hidden="true">&#9654;</span>
@@ -71,41 +76,47 @@
             <div class="content-area about-area">
               <div class="dialog-box">
                 <p>
-                  Hi, I'm Brandon &mdash; a recent Computer Science graduate with a
-                  B.S. and a specialization in <strong>Networked Systems</strong>.
-                  I'm interested in how distributed systems, networking protocols,
-                  and infrastructure come together to make modern software
-                  reliable at scale.
+                  Hi, I'm Brandon &mdash; a Computer Science graduate from
+                  <strong>UC Irvine</strong> (B.S., specialization in
+                  <strong>Networked Systems</strong>) aiming for Cyber Security
+                  Analyst and Junior Security Engineer roles.
                 </p>
                 <p>
-                  My coursework and projects have focused on computer networks,
-                  systems programming, operating systems, and distributed
-                  computing &mdash; I like digging into how things work under the
-                  hood, from packets to production systems.
+                  I shipped <strong>CommunicAI</strong>, a production iOS app on
+                  the App Store, and own its security end to end: authentication,
+                  access control, input validation, and abuse prevention.
                 </p>
                 <p>
-                  Currently looking for opportunities in backend engineering,
-                  systems/infrastructure, or network engineering roles.
+                  I'm studying for the CompTIA Security+ (exam in January 2027)
+                  and serve as team captain for UC Irvine's NCAA Division I
+                  track &amp; field team.
                 </p>
               </div>
               <div class="stat-block">
                 <h3 class="stat-heading">CHARACTER STATS</h3>
                 <ul class="stat-list">
-                  <li><span class="stat-key">CLASS</span><span class="stat-val">CS Graduate</span></li>
-                  <li><span class="stat-key">DEGREE</span><span class="stat-val">B.S. Computer Science</span></li>
+                  <li><span class="stat-key">CLASS</span><span class="stat-val">Security Analyst</span></li>
+                  <li><span class="stat-key">DEGREE</span><span class="stat-val">B.S. CS, UC Irvine</span></li>
                   <li><span class="stat-key">SPEC</span><span class="stat-val">Networked Systems</span></li>
+                  <li><span class="stat-key">GUILD</span><span class="stat-val">NCAA D1 Captain</span></li>
                   <li><span class="stat-key">STATUS</span><span class="stat-val glow">OPEN TO WORK</span></li>
                 </ul>
                 <h3 class="stat-heading">INVENTORY</h3>
                 <ul class="inventory-list">
+                  <li>IAM / OAuth 2.0</li>
+                  <li>RBAC</li>
+                  <li>Secure SDLC</li>
+                  <li>Wireshark</li>
+                  <li>Burp Suite</li>
+                  <li>TLS / RSA / ECC</li>
+                  <li>Firebase / GCP</li>
+                  <li>Docker</li>
                   <li>Python</li>
-                  <li>Java</li>
+                  <li>Swift</li>
+                  <li>JavaScript / Node.js</li>
                   <li>C / C++</li>
-                  <li>TCP/IP &amp; Routing</li>
-                  <li>Linux</li>
-                  <li>Git</li>
+                  <li>Java</li>
                   <li>SQL</li>
-                  <li>Bash</li>
                 </ul>
               </div>
             </div>
@@ -120,29 +131,31 @@
             </div>
             <div class="content-area">
               <p class="section-lead">
-                A few things I've built. Swap these placeholders out with your
-                real projects, write-ups, and links whenever you're ready.
+                Things I've built and shipped.
               </p>
               <div class="level-grid">
 
                 <article class="level-card">
                   <div class="level-card-head">
-                    <span class="level-tag">GAME 01</span>
+                    <span class="level-tag">GAME 01 &middot; LIVE ON THE APP STORE</span>
                   </div>
-                  <h3>Project Title One</h3>
+                  <h3>CommunicAI</h3>
                   <p>
-                    Short description of the project &mdash; what problem it
-                    solves, what you built, and any interesting technical
-                    detail worth calling out.
+                    An iOS app that helps couples communicate. I designed
+                    role-based Firestore access rules that block IDOR, privilege
+                    escalation, and message spoofing (backed by 36 adversarial
+                    tests), multi-provider sign-in with App Check on every
+                    request, server-side rate limiting and receipt verification,
+                    and full account and data deletion.
                   </p>
                   <ul class="tech-tags">
-                    <li>Python</li>
-                    <li>Sockets</li>
-                    <li>Networking</li>
+                    <li>Swift</li>
+                    <li>Firebase / GCP</li>
+                    <li>Node.js</li>
+                    <li>Security</li>
                   </ul>
                   <div class="level-links">
-                    <a href="#" class="pixel-btn small">GitHub</a>
-                    <a href="#" class="pixel-btn small">Demo</a>
+                    <a href="https://communicaiapp.com" target="_blank" rel="noopener" class="pixel-btn small">Website</a>
                   </div>
                 </article>
 
@@ -150,42 +163,86 @@
                   <div class="level-card-head">
                     <span class="level-tag">GAME 02</span>
                   </div>
-                  <h3>Project Title Two</h3>
+                  <h3>TracKing</h3>
                   <p>
-                    Short description of the project &mdash; what problem it
-                    solves, what you built, and any interesting technical
-                    detail worth calling out.
+                    A live multi-group race-timing app built for an NCAA
+                    Division I track &amp; field coach, designed around real
+                    coaching workflows, with Firebase sign-in, cloud sync, and
+                    separate coach and athlete views.
                   </p>
                   <ul class="tech-tags">
-                    <li>Java</li>
-                    <li>Distributed Systems</li>
-                    <li>SQL</li>
+                    <li>Swift</li>
+                    <li>Firebase</li>
+                    <li>Firestore</li>
                   </ul>
                   <div class="level-links">
-                    <a href="#" class="pixel-btn small">GitHub</a>
-                    <a href="#" class="pixel-btn small">Demo</a>
+                    <a href="https://github.com/brandob33/TracKing" target="_blank" rel="noopener" class="pixel-btn small">GitHub</a>
                   </div>
+                </article>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- QUEST LOG -->
+          <section class="game-screen" id="screen-quests" data-screen="quests">
+            <div class="hud">
+              <button class="back-btn" data-back>&#9664; MENU</button>
+              <span class="hud-title">QUEST LOG</span>
+              <span class="hud-page">STAGE 1&ndash;3</span>
+            </div>
+            <div class="content-area">
+              <p class="section-lead">
+                Education, certifications, and experience.
+              </p>
+              <div class="level-grid">
+
+                <article class="level-card">
+                  <div class="level-card-head">
+                    <span class="level-tag">2022 &ndash; 2026</span>
+                  </div>
+                  <h3>B.S. Computer Science</h3>
+                  <p>
+                    University of California, Irvine. Specialization in
+                    Networked Systems. Dean's List and Scholar-Athlete.
+                    Coursework: Security and Privacy, Computer Networks,
+                    Operating Systems, Software Engineering.
+                  </p>
                 </article>
 
                 <article class="level-card">
                   <div class="level-card-head">
-                    <span class="level-tag">GAME 03</span>
+                    <span class="level-tag">IN PROGRESS</span>
                   </div>
-                  <h3>Project Title Three</h3>
+                  <h3>Certifications</h3>
                   <p>
-                    Short description of the project &mdash; what problem it
-                    solves, what you built, and any interesting technical
-                    detail worth calling out.
+                    CompTIA Security+ (exam scheduled January 2027).
+                    UC Irvine Accelerated Certificate Program in Data Science.
                   </p>
-                  <ul class="tech-tags">
-                    <li>C</li>
-                    <li>Linux</li>
-                    <li>Bash</li>
-                  </ul>
-                  <div class="level-links">
-                    <a href="#" class="pixel-btn small">GitHub</a>
-                    <a href="#" class="pixel-btn small">Demo</a>
+                </article>
+
+                <article class="level-card">
+                  <div class="level-card-head">
+                    <span class="level-tag">2026 &ndash; 2027</span>
                   </div>
+                  <h3>Team Captain</h3>
+                  <p>
+                    NCAA Division I Track &amp; Field, UC Irvine. Elected
+                    captain; I lead and mentor teammates and work with the
+                    coaching staff on team standards.
+                  </p>
+                </article>
+
+                <article class="level-card">
+                  <div class="level-card-head">
+                    <span class="level-tag">2024 &ndash; PRESENT</span>
+                  </div>
+                  <h3>Service &amp; Training</h3>
+                  <p>
+                    Front of House at Sup Noodle Bar (2026 &ndash; present) and
+                    Certified Trainer at Raising Cane's (2024 &ndash; 2026),
+                    training crew on service, speed, and food-safety standards.
+                  </p>
                 </article>
 
               </div>
@@ -197,12 +254,12 @@
             <div class="hud">
               <button class="back-btn" data-back>&#9664; MENU</button>
               <span class="hud-title">CONTACT</span>
-              <span class="hud-page">STAGE 1&ndash;3</span>
+              <span class="hud-page">STAGE 1&ndash;4</span>
             </div>
             <div class="content-area contact-area">
               <p class="section-lead">
-                I'm actively looking for opportunities in software and
-                networked systems. Press a button to reach out.
+                I'm looking for Cyber Security Analyst and Junior Security
+                Engineer roles. Press a button to reach out.
               </p>
 
               <div class="controller">
@@ -212,12 +269,12 @@
                 </div>
 
                 <div class="controller-ab">
-                  <a href="mailto:you@example.com" class="ctrl-round-btn" data-label="EMAIL">B</a>
-                  <a href="https://github.com/your-username" target="_blank" rel="noopener" class="ctrl-round-btn" data-label="GITHUB">A</a>
+                  <a href="mailto:brandontbb33@gmail.com" class="ctrl-round-btn" data-label="EMAIL">B</a>
+                  <a href="https://github.com/brandob33" target="_blank" rel="noopener" class="ctrl-round-btn" data-label="GITHUB">A</a>
                 </div>
 
                 <div class="controller-pills">
-                  <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="ctrl-pill" data-label="LINKEDIN">SELECT</a>
+                  <a href="https://www.linkedin.com/in/brandontburns" target="_blank" rel="noopener" class="ctrl-pill" data-label="LINKEDIN">SELECT</a>
                   <a href="assets/resume.pdf" target="_blank" rel="noopener" class="ctrl-pill" data-label="RESUME">START</a>
                 </div>
               </div>

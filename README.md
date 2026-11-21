@@ -5,7 +5,7 @@ Personal portfolio for Brandon T. Burns — plain HTML/CSS/JS, hosted free on Gi
 ## Structure
 
 ```
-index.html        Page content (About / Projects / Contact)
+index.html        Page content (About / Projects / Quest Log / Contact)
 css/style.css      Styling (dark, high-tech / terminal theme)
 js/main.js         Nav toggle, typing effect, footer year
 assets/            Static files (put resume.pdf here)
@@ -13,7 +13,6 @@ assets/            Static files (put resume.pdf here)
 
 ## Edit before publishing
 
-- `index.html`: replace the placeholder project cards (`Project Title One/Two/Three`) with real projects, and update the `mailto:`, LinkedIn, and GitHub links in the Contact section.
 - `assets/`: add your real `resume.pdf` (see `assets/PLACE_RESUME_HERE.txt`), then delete that placeholder file.
 
 ## Deploy to GitHub Pages
